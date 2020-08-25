@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Package Info</title>
+ 
+  </head>
+  <body>
+    <h1>Installed packages</h1>
+ 	<ul style="list-style-type:none;">
+	 	<li th:each="package:${packages}">
+	 		<a th:href="@{info/{id}(id=${package.getKey()})}"><span th:text="${package.getKey()}"></span></a>
+	 	</li>
+ 	</ul>
+  </body>
+</html>

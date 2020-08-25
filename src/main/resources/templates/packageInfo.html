@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title th:text="${packageName}"></title>
+ 
+  </head>
+  <body>
+   <h1>Package Info</h1>
+    <p>Name:  <span th:text="${packageName}"></span></p>
+    <p>Description:  <span th:utext="${packageDescription}"></span></p>
+    <p>Dependencies: 
+    	<span th:each="dependency:${dependencies}">
+    		<a th:unless="${alternativeDependencies.contains(dependency)}" th:href="${dependency}" th:text="${dependency}"></a>
+    		<span th:if="${alternativeDependencies.contains(dependency)}"  th:text="${dependency}"></span>
+    		<span>&nbsp</span>
+    	</span>
+  
+    </p>
+    <p>Reverse dependencies: <span th:each="reverseDependency:${reverseDependencies}"><a th:href="${reverseDependency}" th:text="${reverseDependency}"></a><span>&nbsp</span></span></p>
+    <br><br>
+    <a href="/">Main page</a>
+ 
+  </body>
+</html>
